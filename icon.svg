@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="112" fill="#eaf7ff"/>
+  <rect x="78" y="78" width="356" height="356" rx="82" fill="#ffffff" stroke="#8fd0f6" stroke-width="18"/>
+  <path d="M163 265l61 61 132-148" fill="none" stroke="#278bd2" stroke-width="42" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="256" y="398" text-anchor="middle" font-family="Arial, sans-serif" font-size="58" font-weight="800" fill="#145d94">JLC</text>
+</svg>
