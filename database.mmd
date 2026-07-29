@@ -1,0 +1,72 @@
+erDiagram
+  ROLES ||--o{ EMPLOYEES : classifica
+  EMPLOYEES ||--o{ FORMS : possui
+  WORKSITES ||--o{ FORMS : possui
+  FORMS ||--o{ TIME_ENTRIES : contem
+  EMPLOYEES ||--o{ TIME_ENTRIES : registra
+  WORKSITES ||--o{ TIME_ENTRIES : recebe
+  EMPLOYEES ||--o{ PRESENCE_RECORDS : supervisiona
+  WORKSITES ||--o{ PRESENCE_RECORDS : possui
+  PRESENCE_RECORDS ||--o{ PRESENCE_RECORD_ENTRIES : contem
+  EMPLOYEES ||--o{ PRESENCE_RECORD_ENTRIES : aparece
+
+  ROLES {
+    TEXT id PK
+    TEXT name UK
+  }
+
+  EMPLOYEES {
+    TEXT id PK
+    TEXT cpf UK
+    TEXT name
+    TEXT role_id FK
+    TEXT created_at
+  }
+
+  WORKSITES {
+    TEXT id PK
+    TEXT name UK
+    INTEGER active
+  }
+
+  FORMS {
+    TEXT id PK
+    TEXT employee_id FK
+    TEXT cpf
+    TEXT worksite_id FK
+    TEXT date
+    TEXT status
+    TEXT created_at
+  }
+
+  TIME_ENTRIES {
+    TEXT id PK
+    TEXT form_id FK
+    TEXT employee_id FK
+    TEXT cpf
+    TEXT worksite_id FK
+    TEXT date
+    TEXT time
+    TEXT status
+    TEXT timezone
+    TEXT created_at
+  }
+
+  PRESENCE_RECORDS {
+    TEXT id PK
+    TEXT supervisor_employee_id FK
+    TEXT supervisor_cpf
+    TEXT worksite_id FK
+    TEXT date
+    TEXT created_at
+    TEXT updated_at
+  }
+
+  PRESENCE_RECORD_ENTRIES {
+    TEXT id PK
+    TEXT record_id FK
+    TEXT employee_id FK
+    TEXT employee_name
+    INTEGER present
+    TEXT observation
+  }

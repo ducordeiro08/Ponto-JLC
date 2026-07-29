@@ -1,0 +1,20 @@
+products:
+  - id: toth-gestao
+    name: TOTH Gestão
+    status: active
+    type: product
+    domain: Gestao web de presenca e acompanhamento por obra
+    database: sqlite-via-api
+    packaging: web
+    repo: APP GESTÃO
+    variant: gestao
+
+  - id: toth-funcionario
+    name: TOTH Funcionário
+    status: active
+    type: product
+    domain: Registro individual de ponto por obra
+    database: sqlite-via-api
+    packaging: electron-installed
+    repo: APP GESTÃO
+    variant: funcionario

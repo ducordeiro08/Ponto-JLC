@@ -1,0 +1,17 @@
+agents:
+  - fritz-orchestrator
+  - fritz-product-context-start
+  - fritz-skill-router
+  - fritz-product-planner
+  - fritz-architect
+  - fritz-scaffolder
+  - fritz-backend-builder
+  - fritz-frontend-builder
+  - fritz-db-analyst
+  - fritz-component-librarian
+  - fritz-theme-enforcer
+  - fritz-ui-guardian
+  - fritz-qa-flow-guard
+  - fritz-qa-smoke
+  - fritz-reviewer
+  - fritz-release-ops

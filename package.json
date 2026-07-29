@@ -1,0 +1,48 @@
+{
+  "name": "toth",
+  "version": "1.0.1",
+  "description": "Aplicativo desktop TOTH para registro de ponto por obra",
+  "author": "Fritz Solutions",
+  "main": "dist-electron/electron/main.js",
+  "type": "module",
+  "scripts": {
+    "dev": "npm run dev:funcionario",
+    "dev:api": "tsx backend/server.ts",
+    "dev:gestao": "vite --config gestao/vite.config.ts --host 0.0.0.0",
+    "dev:funcionario": "concurrently -k \"vite --host 127.0.0.1\" \"tsc -p tsconfig.electron.json --watch\" \"wait-on tcp:5173 dist-electron/electron/main.js && cross-env VITE_DEV_SERVER_URL=http://127.0.0.1:5173 electron .\"",
+    "test": "vitest run",
+    "build": "npm run build:funcionario",
+    "build:api": "tsc -p tsconfig.backend.json",
+    "start:api": "node dist-backend/backend/server.js",
+    "build:gestao": "tsc -p gestao/tsconfig.json && vite build --config gestao/vite.config.ts",
+    "build:funcionario": "tsc -b && vite build && tsc -p tsconfig.electron.json"
+  },
+  "dependencies": {
+    "@fastify/cors": "^11.2.0",
+    "better-sqlite3": "^12.4.1",
+    "fastify": "^5.8.5",
+    "lucide-react": "^1.21.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "react-router-dom": "^7.18.0",
+    "recharts": "^3.8.1",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@electron/rebuild": "^4.0.4",
+    "@types/better-sqlite3": "^7.6.13",
+    "@types/node": "^24.10.0",
+    "@types/react": "^19.2.2",
+    "@types/react-dom": "^19.2.2",
+    "@vitejs/plugin-react": "^5.1.1",
+    "concurrently": "^9.2.1",
+    "cross-env": "^10.1.0",
+    "electron": "^39.2.3",
+    "electron-builder": "^26.0.12",
+    "tsx": "^4.22.4",
+    "typescript": "^5.9.3",
+    "vite": "^7.2.2",
+    "vitest": "^4.0.9",
+    "wait-on": "^9.0.1"
+  }
+}

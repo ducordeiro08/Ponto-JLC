@@ -1,52 +1,63 @@
-# Ponto JLC
+# TOTH
 
-Aplicativo mobile para registro de ponto por obra.
+Sistema TOTH para registro de ponto e presenca por obra.
 
-## Como usar no celular
+## Produtos
 
-1. Publique estes arquivos em um servidor ou abra em um ambiente local.
-2. No Android, acesse pelo Chrome.
-3. Toque no menu do navegador e escolha **Adicionar à tela inicial**.
+- **TOTH Gestao**: aplicacao web para encarregado/gestao.
+- **TOTH Funcionario**: aplicacao desktop ja instalada no computador do funcionario.
 
-O app funciona como PWA, com visual focado em celular e armazenamento local dos registros confirmados.
+O nome correto do produto e **TOTH**.
 
-## Fluxo
+## Backend compartilhado
 
-1. Informar o nome do responsável.
-2. Selecionar a obra.
-3. Marcar um ou mais funcionários presentes na obra.
-4. Avançar para a conferência.
-5. Confirmar o ponto.
-6. Gerar um formulário com registros de presença para todos os funcionários selecionados.
-7. Compartilhar/exportar a base de dados em JSON.
+A Gestao web sera usada por outros computadores. Por isso, o backend compartilhado agora e uma API HTTP em `backend/server.ts`.
 
-Também há uma opção para ver formulários salvos. A lista mostra apenas os dados gerais no início; ao tocar em um formulário, os colaboradores daquele registro são exibidos.
+Por padrao, a API escuta em:
 
-## Estrutura de dados
+```text
+http://0.0.0.0:3333
+```
 
-A exportação gera um JSON com tabelas compatíveis com banco relacional:
+No computador que hospeda o backend, descubra o IP da rede local com:
 
-- `Formulario`: `ID_Formulario`, `Data`, `Hora`, `Obra`, `ID_Responsavel`
-- `Responsavel`: `ID_Responsavel`, `Nome`
-- `Funcionario`: `ID_Funcionario`, `Nome`, `Cargo`
-- `Registro_Presenca`: `ID_RegistroPonto`, `ID_Formulario`, `ID_Funcionario`
+```powershell
+ipconfig
+```
 
-`ID_RegistroPonto` é a chave primária de cada presença. A tabela `Registro_Presenca` relaciona os formulários com os funcionários selecionados.
+Em outros computadores, a Gestao web deve apontar para esse IP:
 
-## APK
+```powershell
+$env:VITE_TOTH_API_URL="http://IP-DO-SERVIDOR:3333"
+npm run dev:gestao
+```
 
-Este ambiente não possui Java, Gradle, Android SDK ou npm instalados, então não foi possível compilar o APK localmente.
+## Desenvolvimento
 
-Para gerar APK a partir deste app:
+```powershell
+npm install
+npm run dev:api
+npm run dev:gestao
+npm run dev:funcionario
+```
 
-1. Use o Android Studio ou um serviço como PWABuilder.
-2. Aponte para a pasta/URL onde este PWA está publicado.
-3. Gere o pacote Android e exporte o APK assinado.
+## Validacao
 
-Arquivos principais:
+```powershell
+npm test
+npm run build:api
+npm run build:gestao
+npm run build:funcionario
+```
 
-- `index.html`
-- `styles.css`
-- `app.js`
-- `manifest.webmanifest`
-- `sw.js`
+## Importante
+
+Nao gere instaladores para o TOTH Gestao. Ele e web.
+
+Nao gere instalador do TOTH Funcionario sem uma decisao explicita, pois ele ja esta instalado no PC.
+
+## CPFs de demonstracao
+
+- `12345678909` - Pedro Almeida
+- `98765432100` - Mariana Costa
+- `11122233344` - Joao Santos, encarregado

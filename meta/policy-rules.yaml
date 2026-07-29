@@ -1,0 +1,26 @@
+project:
+  canonical_name: TOTH
+  current_scope:
+    - TOTH Gestão web
+    - TOTH Funcionário desktop ja instalado
+    - Backend compartilhado por API HTTP
+  out_of_scope_now:
+    - Solicitação de edição de horários
+    - Gerar instalador do TOTH Gestão
+    - Gerar instalador do TOTH Funcionário sem pedido explicito
+
+stack:
+  frontend: React 19 + Vite + TypeScript
+  desktop: Electron para TOTH Funcionário
+  backend: Fastify API compartilhada em backend/server.ts
+  database: SQLite via better-sqlite3 no nucleo atual
+  testing: Vitest
+
+rules:
+  - TOTH Gestão deve ser web.
+  - TOTH Gestão deve consumir a API HTTP compartilhada.
+  - A API deve escutar em rede local quando necessario.
+  - Nao gerar instalador sem pedido explicito.
+  - O renderer/web nao deve acessar SQLite diretamente.
+  - As regras de negocio devem ficar no backend compartilhado.
+  - O nome correto do produto e TOTH.
