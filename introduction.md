@@ -4,8 +4,8 @@ Sistema TOTH para registro de ponto e presenca por obra.
 
 ## Produtos
 
-- **TOTH Gestao**: aplicacao web para encarregado/gestao.
-- **TOTH Funcionario**: aplicacao desktop ja instalada no computador do funcionario.
+- **TOTH Gestao**: aplicacao web para gestão.
+- **TOTH Funcionario**: aplicação desktop para o funcionario.
 
 O nome correto do produto e **TOTH**.
 
