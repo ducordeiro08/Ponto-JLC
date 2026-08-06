@@ -1,0 +1,25 @@
+{
+  "name": "TOTH Funcionário",
+  "short_name": "TOTH",
+  "description": "Registro de ponto e lista de presença por obra.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#12076B",
+  "theme_color": "#12076B",
+  "icons": [
+    {
+      "src": "./toth-logo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./logo_nome.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

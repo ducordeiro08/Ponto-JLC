@@ -45,7 +45,7 @@ type TothAttendance = {
   foremanObservation: string;
 };
 
-const apiBaseUrl = (import.meta.env.VITE_TOTH_API_URL ?? "http://127.0.0.1:3333").replace(/\/$/, "");
+const apiBaseUrl = (import.meta.env.VITE_TOTH_API_URL ?? `${window.location.protocol}//${window.location.hostname}:3333`).replace(/\/$/, "");
 
 async function request<T>(path: string, options: RequestInit = {}, retrySession = true): Promise<T | null> {
   try {

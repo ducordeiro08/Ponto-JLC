@@ -3,7 +3,7 @@
 import type { TothApi } from "../shared/types";
 
 declare global {
-  interface Window { toth: TothApi; }
+  interface Window { toth?: TothApi; }
 }
 
 export {};
